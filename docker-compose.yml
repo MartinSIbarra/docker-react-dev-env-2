@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  react-init:
+    image: react:init
+    build:
+      context: .
+      dockerfile: react-init.Dockerfile
+    command: yarn create react-app react-app
+    volumes:
+      - .:/home/developer/app
+
+  react-dev:
+    image: react:dev
+    build:
+      context: .
+      dockerfile: react-dev.Dockerfile
+    command: tail -f /dev/null
+    volumes:
+      - .:/home/developer/app
+    ports:
+      - 3000:3000
+
+  react-dev-server:
+    image: react:dev
+    build:
+      context: .
+      dockerfile: react-dev.Dockerfile
+    tty: true
+    command: yarn start
+    volumes:
+      - .:/home/developer/app
+    ports:
+      - 3000:3000
