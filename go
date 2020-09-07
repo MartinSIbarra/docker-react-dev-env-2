@@ -155,6 +155,7 @@ function action_init_dev_env () {
 
 function action_start_server () {
   docker-compose up --build react-dev-server
+  action_down_istance
 }
 
 function action_start_prompt () {
