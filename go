@@ -140,7 +140,7 @@ function action_down_istance () {
 }
 
 function action_init_dev_env () {
-  if ! [ "$(ls -laF | grep react/)" ]
+  if ! [ "$(ls -laF | grep react-app/)" ]
   then
     docker-compose up --build react-init
     action_down_istance
